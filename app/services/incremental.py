@@ -146,7 +146,7 @@ async def _call_llm(prompt: str) -> dict[str, Any]:
 
         client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=settings.extraction_model,
             max_tokens=4096,
             messages=[{"role": "user", "content": prompt}],
         )
@@ -378,7 +378,7 @@ async def run_incremental_extraction(
                 promoted += 1
 
     # 6. Record the run — same transaction context as the stores above
-    model = "claude-sonnet-4-20250514" if settings.anthropic_api_key else "mock"
+    model = settings.extraction_model if settings.anthropic_api_key else "mock"
     stats = {
         "discovered": len(raw_discover),
         "reinforced": reinforced,

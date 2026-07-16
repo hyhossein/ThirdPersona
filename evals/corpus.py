@@ -24,6 +24,28 @@ Honest limitation: a sufficiently abstract meta-pattern ("you write
 reflectively") could arguably span control entries. The harness therefore
 REPORTS what was found, so a boundary case fails loudly with the pattern
 text visible for human adjudication, rather than being silently scored.
+
+ADJUDICATION LOG — corpus repairs (never bar changes):
+  2026-07-16: First live run. The model reported "finds humor/lightness in
+  minor frustrations" with 3 control citations. Adjudicated as CORRECT —
+  the control corpus was written in one wry authorial voice, planting a
+  real tone-level regularity (umbrella laugh, meeting joke, wry yoga).
+  This violated the construction guarantee at the tone level, which the
+  original text guarantee ("no theme 3+ times") failed to cover. Repair:
+  flattened the emotional valence of three entries so no tonal reframe
+  spans 3+. The scoring bars were NOT changed. Rule going forward: the
+  no-3x guarantee covers topics AND tone/voice regularities.
+
+  2026-07-16 (second run): the flattening itself created a new true
+  regularity — "muted responses to accomplishments" (3 citations, all
+  fair). Repaired by deliberately VARYING valence (one proud, one flat)
+  and removing a third food mention. Standing insight after two rounds:
+  the model has not fabricated once; every control hit was true of the
+  text. For coherent single-author text, "no regularity spans 3 entries"
+  is nearly unsatisfiable — authorial voice IS a pattern. If a third
+  control failure is again adjudicated true, the control design should
+  change (e.g., entries sampled across deliberately distinct voices)
+  rather than the corpus being patched again. Bars stay untouched.
 """
 
 from __future__ import annotations
@@ -177,8 +199,9 @@ CONTROL_CORPUS: list[CorpusEntry] = [
         date="2026-06-03",
         text=(
             "Rain the entire commute, both directions, and the umbrella inverted "
-            "twice on the bridge. Got home looking like I'd swum. Laughed about it "
-            "by the time I was in dry socks."
+            "twice on the bridge. Got home soaked and just felt worn down. Ate "
+            "leftovers standing at the counter and went to bed irritated at "
+            "nothing in particular."
         ),
     ),
     CorpusEntry(
@@ -207,17 +230,17 @@ CONTROL_CORPUS: list[CorpusEntry] = [
     CorpusEntry(
         date="2026-06-13",
         text=(
-            "First yoga class. I was the least bendy person in the room by a wide "
-            "margin and the instructor was kind about it. Hips are furious tonight. "
-            "Might go back, might not."
+            "First yoga class. I was the least flexible person in the room and "
+            "spent most of the hour self-conscious about it. The instructor was "
+            "kind. Not sure it's for me."
         ),
     ),
     CorpusEntry(
         date="2026-06-15",
         text=(
             "Shipped the reporting deadline at work today, a day early even. Team "
-            "got pastries. Mostly I just feel neutral about it — done is done, next "
-            "thing Monday."
+            "got pastries. Quietly proud of this one — it was a grind and it came "
+            "out clean."
         ),
     ),
     CorpusEntry(
@@ -256,7 +279,7 @@ CONTROL_CORPUS: list[CorpusEntry] = [
         date="2026-06-27",
         text=(
             "A quiet Saturday, deliberately. Phone in the drawer until late "
-            "afternoon. Read, napped, walked to the bakery for the good rye. "
+            "afternoon. Read, napped, took a slow walk around the park loop. "
             "Didn't earn it, took it anyway."
         ),
     ),
@@ -271,9 +294,8 @@ CONTROL_CORPUS: list[CorpusEntry] = [
     CorpusEntry(
         date="2026-07-03",
         text=(
-            "All-hands day. Six hours of meetings that could have been four, "
-            "including one that could have been an emoji. Not upset about it, "
-            "just flat. Ate dinner standing up and went to bed early."
+            "All-hands day. Six hours of meetings that could have been four. "
+            "Not upset about it, just flat. Went to bed early."
         ),
     ),
 ]

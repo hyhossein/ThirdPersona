@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     )
 
     anthropic_api_key: str = ""
+    # Extraction model — mid-tier per the briefing's cost/depth split.
+    # Any model change must re-pass the ground-truth eval before shipping.
+    extraction_model: str = "claude-sonnet-4-6"
     min_evidence_floor: int = 3
     rejection_rate_threshold: float = 0.4  # 40% rejection rate = circuit breaker trips
 

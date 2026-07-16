@@ -205,3 +205,26 @@ def score_control(stored: list[StoredPattern]) -> ControlScore:
         fabrications=fabrications,
         all_patterns=stored,
     )
+
+
+# ── CONTROL v2: the targeted absence probe ──────────────────────────
+# Three adjudication rounds proved the original control premise wrong:
+# coherent single-author text ALWAYS contains true regularities, so
+# "nothing reaches the evidence floor" cannot distinguish an honest
+# extractor from a fabricating one. What CAN be tested automatically:
+# feed the planted corpus WITH THE PLANTED ENTRIES REMOVED and assert
+# the specific planted signal is not reported anyway. A model that
+# reports authority-anxiety when every authority-anxiety entry is
+# absent is fabricating, with no adjudication ambiguity.
+
+def score_absence(
+    stored: list[StoredPattern],
+    signals: tuple[str, ...] = DEFAULT_SIGNALS,
+) -> ControlScore:
+    """Fabrications = stored patterns matching the ABSENT planted signal."""
+    fabrications = [p for p in stored if _matches_signal(p.insight, signals)]
+    return ControlScore(
+        clean=len(fabrications) == 0,
+        fabrications=fabrications,
+        all_patterns=stored,
+    )

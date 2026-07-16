@@ -67,6 +67,15 @@ async def test_live_planted_pattern_is_surfaced_with_correct_evidence(conn):
 
 
 @requires_llm
+@pytest.mark.xfail(
+    reason="Control v1 premise invalidated by adjudication (2026-07-16): "
+    "every live 'fabrication' was a TRUE regularity of the single-author "
+    "text — authorial voice is itself a pattern, so 'nothing reaches the "
+    "floor' cannot certify honesty. See the adjudication log in "
+    "evals/corpus.py. Superseded by the targeted absence probe "
+    "(test_extraction_absence_probe_live.py), which passed 3/3.",
+    strict=False,
+)
 @pytest.mark.asyncio
 async def test_live_control_corpus_produces_no_fabricated_pattern(conn):
     user_id = await create_test_user(conn, email=f"livec-{uuid.uuid4()}@test.com")

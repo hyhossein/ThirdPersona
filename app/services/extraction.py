@@ -165,7 +165,7 @@ async def _call_llm(prompt: str) -> list[dict[str, Any]]:
 
         client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=settings.extraction_model,
             max_tokens=4096,
             messages=[{"role": "user", "content": prompt}],
         )
