@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ThirdPersona — This is you. Unwritten.</title>
+<style>
+  :root {
+    --ink: #EDF2F7; --ink2: #9AA6B5; --ink3: #5A6472; --ink4: #39414D;
+    --gold: #C9A96E; --gold-b: #E3B564; --blue: #8D9EF0; --green: #54C48E;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, system-ui, sans-serif;
+    --bg-warm: 0;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: initial; }
+  body {
+    background:
+      radial-gradient(1100px 700px at 50% -5%, rgba(18, 24, 48, 0.9), transparent 60%),
+      radial-gradient(900px 900px at 80% 110%, rgba(58, 42, 20, calc(var(--bg-warm) * 0.55)), transparent 55%),
+      #05070C;
+    color: var(--ink); font-family: var(--sans); overflow-x: hidden;
+  }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100vh; z-index: 1; }
+  .grain {
+    position: fixed; inset: -50%; z-index: 4; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 9s steps(10) infinite;
+  }
+  @keyframes grain { 0%,100% { transform: translate(0,0);} 20% { transform: translate(-4%,3%);} 40% { transform: translate(3%,-2%);} 60% { transform: translate(-2%,4%);} 80% { transform: translate(4%,-3%);} }
+  .vignette { position: fixed; inset: 0; z-index: 3; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(2,3,6,0.75) 100%); }
+
+  #story { position: relative; z-index: 2; }
+  section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    max-width: 680px; margin: 0 auto; padding: 18vh 28px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+    font-weight: 600; margin-bottom: 22px; }
+  h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.015em; line-height: 1.14; }
+  h1 { font-size: clamp(44px, 8vw, 84px);
+    background: linear-gradient(135deg, #EDF2F7 30%, #E3B564 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  h2 { font-size: clamp(30px, 5vw, 52px); margin-bottom: 22px; }
+  .sub { font-size: 17px; color: var(--ink2); line-height: 1.85; max-width: 480px; margin-top: 18px; }
+  .whisper { font-size: 13px; color: var(--ink4); margin-top: 14px; }
+  .cue { position: absolute; bottom: 26px; left: 0; right: 0; text-align: center;
+    color: var(--ink4); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  #hero { min-height: 100vh; text-align: center; align-items: center; position: relative; max-width: 900px; }
+
+  .stats { display: grid; gap: 12px; margin-top: 40px; }
+  .stat { display: flex; align-items: baseline; gap: 18px; padding: 20px 24px; border-radius: 14px;
+    background: rgba(14, 18, 25, 0.55); backdrop-filter: blur(12px);
+    border: 1px solid rgba(123, 142, 200, 0.13); }
+  .stat b { font-family: var(--serif); font-size: 26px; color: var(--gold-b); min-width: 108px; font-weight: 500; }
+  .stat span { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
+
+  .cards { display: grid; gap: 14px; margin-top: 36px; }
+  .card { padding: 22px 24px; border-radius: 16px; background: rgba(14, 18, 25, 0.6);
+    backdrop-filter: blur(14px); border: 1px solid rgba(123, 142, 200, 0.14);
+    border-left: 3px solid var(--blue); box-shadow: 0 14px 44px rgba(0,0,0,0.35); }
+  .card .k { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+    font-weight: 700; margin-bottom: 10px; }
+  .card p { font-family: var(--serif); font-size: 16.5px; line-height: 1.75; color: #DAE2EC; }
+  .card .ev { margin-top: 12px; font-size: 11px; color: var(--ink3); }
+  .card .ev i { display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold-b); margin-right: 3px; box-shadow: 0 0 6px rgba(227,181,100,0.5); }
+
+  #consent { text-align: center; align-items: center; }
+  .moment { margin-top: 34px; display: inline-flex; gap: 12px; }
+  .yes { padding: 16px 44px; border-radius: 12px; border: none; cursor: pointer;
+    font: 700 15px var(--sans); color: #0A0C12;
+    background: linear-gradient(135deg, var(--gold-b), var(--gold));
+    box-shadow: 0 8px 40px rgba(201, 169, 110, 0.35); }
+  .no { padding: 16px 30px; border-radius: 12px; cursor: pointer; font: 600 14px var(--sans);
+    color: var(--ink3); background: transparent; border: 1px solid rgba(123,142,200,0.2); }
+
+  #cta { text-align: center; align-items: center; }
+  footer { position: relative; z-index: 2; text-align: center; padding: 40px 20px 60px;
+    color: var(--ink4); font-size: 12px; }
+  @media (max-width: 640px) { section { padding: 14vh 22px; } }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+
+<div id="story">
+  <section id="hero">
+    <div class="eyebrow">ThirdPersona</div>
+    <h1>This is you.<br />Unwritten.</h1>
+    <p class="sub">Every honest word you write pulls a piece of you out of the dust and into form. Keep scrolling. Watch yourself arrive.</p>
+    <div class="cue">scroll — you assemble as you go ↓</div>
+  </section>
+
+  <section id="science">
+    <div data-depth="0.25">
+      <div class="eyebrow" data-rise>Language was never the medium of thought</div>
+      <h2 data-rise>Who you are doesn't live in words.</h2>
+      <p class="sub" data-rise>In 2025, researchers at MIT, UCL, and Berkeley showed that the brain's language network sits idle while you reason. Thought runs on a structure underneath the words — and that structure is what we read.</p>
+    </div>
+    <div class="stats" data-depth="0.55">
+      <div class="stat" data-rise><b>39/40</b><span>rule-induction problems solved by a patient with profound aphasia — reasoning intact, language gone</span></div>
+      <div class="stat" data-rise><b>0</b><span>engagement of the language network during logical reasoning in healthy adults (fMRI)</span></div>
+      <div class="stat" data-rise><b>2 systems</b><span>thought and language are distinct neural machinery — not one</span></div>
+    </div>
+  </section>
+
+  <section id="noticing">
+    <div data-depth="0.2">
+      <div class="eyebrow" data-rise>It notices. It never decides.</div>
+      <h2 data-rise>Hypotheses,<br />never verdicts.</h2>
+      <p class="sub" data-rise>Patterns surface only when the evidence exists — three independent entries, minimum, every one traceable back to your own words.</p>
+    </div>
+    <div class="cards" data-depth="0.5">
+      <div class="card"><div class="k">We noticed</div><p>when someone shares vulnerability with you, you move toward solutions before the feeling has finished being said.</p><div class="ev"><i></i><i></i><i></i> 3 entries · across 11 days · receipts inside</div></div>
+      <div class="card"><div class="k">We noticed</div><p>your giving may be asymmetric — you show up for others when depleted, and tell no one you're running on fumes.</p><div class="ev"><i></i><i></i><i></i> 3 entries · across 9 days · receipts inside</div></div>
+      <div class="card"><div class="k">We noticed</div><p>solitary, contemplative time consistently restores you — and you rarely plan for it until you're already empty.</p><div class="ev"><i></i><i></i><i></i><i></i> 4 entries · across 3 weeks · receipts inside</div></div>
+    </div>
+  </section>
+
+  <section id="consent">
+    <div data-depth="0.3">
+      <div class="eyebrow" data-rise>The rule that lives in the database</div>
+      <h2 data-rise>Nothing becomes part of you<br />without your yes.</h2>
+      <p class="sub" data-rise style="margin-left:auto;margin-right:auto;">Every hypothesis waits for you. Confirm it, and it joins your self-map. Reject it, and the system learns — and never brings it back.</p>
+    </div>
+    <div class="moment" data-rise>
+      <button class="yes">That's me</button>
+      <button class="no">Not me</button>
+    </div>
+    <p class="whisper" data-rise>Enforced by a database trigger. Not by good intentions.</p>
+  </section>
+
+  <section id="cta">
+    <div data-depth="0.25">
+      <div class="eyebrow" data-rise>Know yourself first. Then connect.</div>
+      <h2 data-rise>You've been assembling<br />this whole time.</h2>
+      <p class="sub" data-rise style="margin-left:auto;margin-right:auto;">Look at the form behind these words. That's a few minutes of scrolling. Imagine a year of honest writing.</p>
+    </div>
+    <div class="moment" data-rise><button class="yes">Begin building yourself</button></div>
+  </section>
+</div>
+
+<footer>ThirdPersona — private by architecture · nothing without receipts · you are the ground truth</footer>
+
+<script>
+/*BUNDLE*/
+</script>
+</body>
+</html>
