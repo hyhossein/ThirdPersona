@@ -242,6 +242,7 @@ let t = 0;
 const tmp = new THREE.Color();
 const GOLD = new THREE.Color("#E3B564"), BLUE = new THREE.Color("#8D9EF0"), DIMC = new THREE.Color("#232B3E"), WHITE = new THREE.Color("#FFFFFF");
 function frame() {
+  if (window.__TP_STOP) return; // combined build: app took over
   t += REDUCED ? 0.003 : 0.008;
   if (webgl) {
     const breathe = 1 + Math.sin(t * 0.9 * P.breath) * (REDUCED ? 0.002 : 0.006 + P.coverage * 0.006);
