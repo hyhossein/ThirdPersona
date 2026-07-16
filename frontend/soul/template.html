@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ThirdPersona</title>
+<meta property="og:title" content="ThirdPersona" />
+<meta property="og:description" content="A human with no soul. Your words give it one." />
+<meta property="og:type" content="website" />
+<meta name="description" content="A human with no soul. Your words give it one. Private by architecture." />
+<style>
+  :root {
+    --ink: #EDF2F7; --ink2: #9AA6B5; --ink3: #5A6472; --ink4: #39414D;
+    --gold: #C9A96E; --gold-b: #E3B564;
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background:
+      radial-gradient(1100px 700px at 50% -5%, rgba(18, 24, 48, 0.9), transparent 60%),
+      #05070C;
+    color: var(--ink); font-family: var(--sans); overflow: hidden;
+  }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100vh; z-index: 1; }
+  .vignette { position: fixed; inset: 0; z-index: 2; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(2,3,6,0.75) 100%); }
+  .grain { position: fixed; inset: -50%; z-index: 3; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  @media (prefers-reduced-motion: no-preference) {
+    .grain { animation: grain 9s steps(10) infinite; }
+  }
+  @keyframes grain { 0%,100% { transform: translate(0,0);} 20% { transform: translate(-4%,3%);} 40% { transform: translate(3%,-2%);} 60% { transform: translate(-2%,4%);} 80% { transform: translate(4%,-3%);} }
+
+  #ui { position: fixed; inset: 0; z-index: 5; display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-end; padding-bottom: 7vh; pointer-events: none; }
+  #ui > * { pointer-events: auto; }
+
+  .brand { position: fixed; top: 26px; left: 0; right: 0; text-align: center;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; z-index: 5; }
+
+  h1 { position: fixed; top: 10vh; left: 0; right: 0; text-align: center; z-index: 5;
+    font-family: var(--serif); font-weight: 500; letter-spacing: -0.015em;
+    font-size: clamp(30px, 4.6vw, 52px); line-height: 1.16; pointer-events: none;
+    background: linear-gradient(135deg, #EDF2F7 30%, #E3B564 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  #caption { min-height: 54px; max-width: 560px; text-align: center; margin-bottom: 6px;
+    font-family: var(--serif); font-size: 17px; line-height: 1.7; color: #DAE2EC;
+    opacity: 0.5; padding: 0 22px; }
+  #percent { font-size: 12.5px; color: var(--ink3); margin-bottom: 22px; opacity: 0;
+    letter-spacing: 0.04em; }
+  #prompt { font-size: 15px; color: var(--ink2); margin-bottom: 18px; transition: opacity .4s; }
+
+  #micwrap { position: relative; width: 84px; height: 84px; margin-bottom: 14px; }
+  #micring { position: absolute; inset: -12px; border-radius: 50%;
+    border: 1.5px solid rgba(227, 181, 100, 0.7); opacity: 0;
+    transition: transform .08s linear; pointer-events: none; }
+  #mic { width: 84px; height: 84px; border-radius: 50%; cursor: pointer;
+    background: radial-gradient(circle at 35% 30%, rgba(227,181,100,0.18), rgba(14,18,25,0.85));
+    border: 1px solid rgba(201, 169, 110, 0.4); color: var(--gold-b);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 44px rgba(201, 169, 110, 0.18);
+    transition: box-shadow .3s, transform .15s; }
+  #mic:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(201,169,110,0.3); }
+  #mic.live { box-shadow: 0 0 70px rgba(227,181,100,0.45); }
+  #mic svg { width: 30px; height: 30px; }
+
+  #typetoggle { font-size: 11px; color: var(--ink4); text-decoration: underline;
+    cursor: pointer; background: none; border: none; font-family: inherit; margin-bottom: 8px; }
+  #typewrap { display: none; gap: 8px; margin-bottom: 14px; width: min(480px, 86vw); }
+  #typeinput { flex: 1; background: rgba(14,18,25,0.8); border: 1px solid rgba(123,142,200,0.2);
+    border-radius: 12px; padding: 14px 18px; color: var(--ink); font-size: 15px;
+    font-family: var(--serif); outline: none; }
+  #typeinput::placeholder { color: var(--ink4); }
+
+  .word { position: fixed; z-index: 4; font-family: var(--serif); font-size: 17px;
+    color: #E3B564; pointer-events: none; white-space: nowrap;
+    text-shadow: 0 0 14px rgba(227,181,100,0.6); }
+
+  #cta { opacity: 0; transform: translateY(10px); transition: all .8s ease; margin-top: 4px; }
+  #cta.show { opacity: 1; transform: none; }
+  #cta a { display: inline-block; padding: 13px 36px; border-radius: 12px;
+    font: 700 14px var(--sans); color: #0A0C12; text-decoration: none;
+    background: linear-gradient(135deg, var(--gold-b), var(--gold));
+    box-shadow: 0 8px 40px rgba(201, 169, 110, 0.3); }
+  .whisper { font-size: 11px; color: var(--ink4); margin-top: 12px; }
+
+  #nogl { display: none; position: fixed; inset: 0; z-index: 6; align-items: center;
+    justify-content: center; text-align: center; color: var(--ink2);
+    font-family: var(--serif); font-size: 18px; padding: 40px; background: #05070C; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div id="nogl">This page needs WebGL to show you yourself.</div>
+
+<div class="brand">ThirdPersona</div>
+<h1>This is you. Unwritten.</h1>
+
+<div id="ui">
+  <div id="caption"></div>
+  <div id="percent"></div>
+  <div id="prompt">Say one true thing.</div>
+  <div id="micwrap">
+    <div id="micring"></div>
+    <button id="mic" aria-label="Speak">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <rect x="9" y="3" width="6" height="11" rx="3"/>
+        <path d="M5 11a7 7 0 0 0 14 0"/>
+        <line x1="12" y1="18" x2="12" y2="21"/>
+      </svg>
+    </button>
+  </div>
+  <button id="typetoggle">type instead</button>
+  <div id="typewrap">
+    <input id="typeinput" placeholder="One true thing" autocomplete="off" />
+  </div>
+  <div id="cta"><a href="#begin">Begin building yourself</a>
+    <div class="whisper">It keeps nothing you did not say. All of this stays on your device.</div>
+  </div>
+</div>
+
+<script>
+/*BUNDLE*/
+</script>
+</body>
+</html>
