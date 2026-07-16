@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" modified="2026-07-16T00:00:00.000Z" agent="ThirdPersona" version="24.0.0">
+  <diagram id="tp-ceo-overview" name="ThirdPersona — Executive Overview">
+    <mxGraphModel dx="1600" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===================== TITLE ===================== -->
+        <mxCell id="title" value="&lt;font style=&quot;font-size: 26px&quot;&gt;&lt;b&gt;ThirdPersona&lt;/b&gt;&lt;/font&gt;&amp;nbsp;&amp;nbsp;—&amp;nbsp;&amp;nbsp;&lt;font style=&quot;font-size: 16px&quot; color=&quot;#555555&quot;&gt;a private mirror that helps people see their own patterns — and never tells them who they are&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="status" value="&lt;b&gt;Status today&lt;/b&gt;&lt;br&gt;Single-user core: built &amp;amp; verified (21 automated tests).&lt;br&gt;Sharing &amp;amp; dialogue: deliberately parked pending product decisions." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;align=left;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="14" width="314" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== SECTION 1: USER JOURNEY ===================== -->
+        <mxCell id="s1label" value="&lt;b&gt;THE USER JOURNEY&lt;/b&gt; — from a private diary to a self you can consult" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="j1" value="&lt;b&gt;1 · You write&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Diary, voice notes, moods.&lt;br&gt;Frictionless capture —&lt;br&gt;the raw material of self-knowledge.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j2" value="&lt;b&gt;2 · AI notices&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;&amp;quot;We noticed…&amp;quot; — always a hypothesis, never a verdict. Every observation cites your own words.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j3" value="&lt;b&gt;3 · You decide&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;&amp;quot;That&#39;s me&amp;quot; or &amp;quot;that&#39;s not me.&amp;quot;&lt;br&gt;Nothing becomes part of your profile without your explicit yes.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j4" value="&lt;b&gt;4 · Your living self-map&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Confirmed patterns with full receipts — emotional rhythms, tensions, values, growth over time.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="820" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j5" value="&lt;b&gt;5 · Share on your terms&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Consent-driven circles: choose who sees what, at what depth. Revocable, always.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="j6" value="&lt;b&gt;6 · The third persona&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;Trusted people converse with a persona grounded ONLY in what you chose to share.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=14;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="130" width="230" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ej1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="j1" target="j2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ej2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="j2" target="j3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ej3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="j3" target="j4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ej4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#b3a05a;dashed=1;" edge="1" parent="1" source="j4" target="j5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ej5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#b3a05a;dashed=1;" edge="1" parent="1" source="j5" target="j6"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- ===================== SECTION 2: THE ENGINE ===================== -->
+        <mxCell id="s2label" value="&lt;b&gt;INSIDE THE ENGINE&lt;/b&gt; — how an insight earns the right to describe you" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="en1" value="&lt;b&gt;Your entries&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;encrypted, isolated per user&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="en2" value="&lt;b&gt;AI pattern discovery&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;confidence comes from evidence volume — never from the model&#39;s self-assurance&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="250" y="330" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="en3" value="&lt;b&gt;Candidate&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;invisible to the user — an unproven guess&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="480" y="330" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gate1" value="&lt;b&gt;EVIDENCE GATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;≥ 3 independent entries or it does not exist&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="315" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="en4" value="&lt;b&gt;Hypothesis&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;shown to the user as a question, with its receipts&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="880" y="330" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gate2" value="&lt;b&gt;CONSENT GATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;user says &amp;quot;that&#39;s me&amp;quot; — enforced by the database itself; no code path can skip it&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="305" width="190" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="en5" value="&lt;b&gt;Active pattern&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;now — and only now — part of who the system believes you are&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="330" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ee1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="en1" target="en2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="en2" target="en3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="en3" target="gate1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="gate1" target="en4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1" source="en4" target="gate2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee6" value="&amp;quot;that&#39;s me&amp;quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#82b366;fontSize=11;fontColor=#4b7d3c;" edge="1" parent="1" source="gate2" target="en5"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="rej" value="&lt;b&gt;Rejected — &amp;quot;that&#39;s not me&amp;quot;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;remembered as a hard negative: the system never re-surfaces it&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="880" y="480" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="breaker" value="&lt;b&gt;Quality circuit breaker&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;if users reject more than 40% of insights, discovery pauses itself — the product stops guessing rather than guessing worse&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="250" y="480" width="330" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ee7" value="&amp;quot;not me&amp;quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#b85450;fontSize=11;fontColor=#b85450;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="gate2" target="rej"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee8" value="rejection feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;fontSize=11;fontColor=#b85450;" edge="1" parent="1" source="rej" target="breaker"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="breaker" target="en2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- ===================== SECTION 3: TRUST ===================== -->
+        <mxCell id="s3label" value="&lt;b&gt;WHY PEOPLE CAN TRUST IT&lt;/b&gt; — trust is engineered, not promised" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t1" value="&lt;b&gt;Private by architecture&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;Every user&#39;s data is isolated at the database layer itself. The app refuses to even start on a connection that could bypass it.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;spacing=6;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="290" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="&lt;b&gt;Nothing without receipts&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;Every insight traces to the exact diary entries behind it. Users always see WHY the system believes what it believes.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;spacing=6;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="640" width="290" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="&lt;b&gt;The user is the ground truth&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;No pattern becomes &amp;quot;you&amp;quot; without your explicit confirmation — a database-level rule no engineer or bug can route around.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;spacing=6;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="640" width="290" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" value="&lt;b&gt;Self-correcting&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;Rejections teach the system what NOT to say. Too many rejections and discovery pauses itself instead of eroding trust.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;spacing=6;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="640" width="290" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" value="&lt;b&gt;Measured honesty&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;A ground-truth evaluation plants known patterns in synthetic diaries and catches the AI if it fabricates evidence — we test whether it lies.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;spacing=6;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="640" width="290" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== LEGEND ===================== -->
+        <mxCell id="leg1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="36" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" value="Built &amp;amp; verified today (21 automated tests, incl. security &amp;amp; anti-fabrication)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="84" y="796" width="520" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="800" width="36" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" value="Designed, intentionally not built — awaiting product decisions on consent &amp;amp; sharing" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="664" y="796" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="800" width="36" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" value="Core engine (built &amp;amp; verified)" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1294" y="796" width="320" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
