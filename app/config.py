@@ -16,6 +16,14 @@ class Settings(BaseSettings):
         "postgresql://thirdpersona:localdev@localhost:5432/thirdpersona"
     )
 
+    # Auth. "dev" = X-User-ID header (local only; refuses to boot in
+    # production). "jwt" = Bearer JWT verified against JWT_JWKS_URL
+    # (Clerk or any OIDC provider), users JIT-provisioned from `sub`.
+    auth_mode: str = "dev"
+    jwt_jwks_url: str = ""
+    jwt_issuer: str = ""
+    thirdpersona_env: str = "development"
+
     anthropic_api_key: str = ""
     # Extraction model — mid-tier per the briefing's cost/depth split.
     # Any model change must re-pass the ground-truth eval before shipping.

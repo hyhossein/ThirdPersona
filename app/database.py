@@ -71,18 +71,10 @@ def get_pool() -> asyncpg.Pool:
     return _pool
 
 
-async def get_current_user_id(
-    x_user_id: str = Header(..., alias="X-User-ID")
-) -> uuid.UUID:
-    """
-    Extract user identity from request header.
-    In production this would be Clerk JWT verification.
-    For the vertical slice, a simple header suffices.
-    """
-    try:
-        return uuid.UUID(x_user_id)
-    except ValueError:
-        raise HTTPException(status_code=400, detail="X-User-ID must be a valid UUID")
+# Identity now lives in app.auth (JWT verification + JIT provisioning,
+# with an explicit dev-only header mode). Re-exported here so routers'
+# imports keep working.
+from app.auth import get_current_user_id  # noqa: E402, F401
 
 
 async def get_db(

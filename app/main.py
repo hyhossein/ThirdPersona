@@ -20,7 +20,10 @@ async def lifespan(app: FastAPI):
     # privileges; the runtime connects as a non-superuser role so RLS
     # actually applies. Run `python scripts/setup_db.py` (admin DSN)
     # before starting the app. init_pool refuses to boot if the runtime
-    # role is SUPERUSER or BYPASSRLS.
+    # role is SUPERUSER or BYPASSRLS; assert_auth_config refuses dev-mode
+    # auth in production and half-configured jwt mode.
+    from app.auth import assert_auth_config
+    assert_auth_config()
     await init_pool(settings.database_url)
     yield
     await close_pool()
