@@ -8,6 +8,7 @@ import asyncpg
 
 from app.database import get_db, get_current_user_id
 from app.schemas import EntryCreate, EntryResponse
+from app.services.jobs import enqueue_extraction
 
 router = APIRouter(prefix="/entries", tags=["entries"])
 
@@ -37,6 +38,9 @@ async def create_entry(
         body.text_content,
         body.source_type,
     )
+    # The 11pm loop: writing schedules background extraction (debounced —
+    # a burst of writes coalesces into one run a couple of minutes later).
+    await enqueue_extraction(conn, user_id)
     return EntryResponse(**dict(row))
 
 
